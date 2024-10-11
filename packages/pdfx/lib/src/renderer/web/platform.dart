@@ -50,8 +50,10 @@ class PdfxWeb extends PdfxPlatform {
   }
 
   @override
-  Future<PdfDocument> openAsset(String name, {String? password}) async {
-    final bytes = await rootBundle.load(name);
+  Future<PdfDocument> openAsset(String name,
+      {String? password, String? package}) async {
+    final bytes = await rootBundle
+        .load(package == null ? name : "packages/$package/$name");
     final data = bytes.buffer;
     final obj = await _openDocumentData(data, password: password);
 

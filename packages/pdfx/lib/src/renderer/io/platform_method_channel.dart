@@ -49,6 +49,7 @@ class PdfxPlatformMethodChannel extends PdfxPlatform {
           name,
         ))!,
         'asset:$name',
+        
       );
 
   /// Open PDF file from memory (Uint8List)
